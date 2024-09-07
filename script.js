@@ -12,7 +12,7 @@ let brushColor = 'black';
 let brushSize = 5;
 
 // Connect to WebSocket server
-const socket = new WebSocket('ws://localhost:8080');
+const socket = new WebSocket('ws://192.168.1.252:8080/');
 
 // Start painting
 function startPainting(event) {
