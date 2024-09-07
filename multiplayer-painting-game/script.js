@@ -11,8 +11,13 @@ let painting = false;
 let brushColor = 'black';
 let brushSize = 5;
 
+// Determine the WebSocket server URL
+const wsProtocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+const wsHost = window.location.host;
+const wsUrl = `${wsProtocol}//${wsHost}`;
+
 // Connect to WebSocket server
-const socket = new WebSocket('ws://192.168.1.252:8080/');
+const socket = new WebSocket(wsUrl);
 
 // Start painting
 function startPainting(event) {
@@ -91,4 +96,5 @@ window.addEventListener('beforeunload', function () {
         socket.close(); // Gracefully close the WebSocket connection
     }
 });
+
 
